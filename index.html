@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html"> Peta Persebaran ODGJ</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+
+
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+            
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Dusun Klesem</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">Dusun Babakan</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">Dusun Karangjambu</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Dusun Wanatawang</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-map-marker-alt me-1"></i>
+                        Peta Sebaran ODGJ Dusun Kandangwangi
+                    </div>
+                    <div class="card-body">
+                        <div id="map" style="height: 500px;"></div>
+                    </div>
+                    </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                   <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>NAMA</th>
+                                        <th>NIK</th>
+                                        <th>ALAMAT</th>
+                                        <th>DIAGNOSA</th>
+                                        <th>AKTIF/TIDAK AKTIF</th>
+                                        <th>RUMAH SAKIT</th>
+                                        <th>PUSKESMAS</th>
+                                        <th>POSISI SAAT INI</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>RIZAL FEBRIAN</td>
+                                        <td>3304102802990000</td>
+                                        <td>Kandangwangi 4/4</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td>✓</td>
+                                        <td></td>
+                                        <td>RSI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>FIRDAUS FEBRIAN</td>
+                                        <td>3304101802980000</td>
+                                        <td>Kandangwangi 4/3</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td>✓</td>
+                                        <td></td>
+                                        <td>RSI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>YARMAN</td>
+                                        <td>3304100706780000</td>
+                                        <td>Kandangwangi 3/4</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td></td>
+                                        <td>Puskesmas Wanadadi 2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>KINAR</td>
+                                        <td>3304101203710001</td>
+                                        <td>Kandangwangi 3/4</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td></td>
+                                        <td>Puskesmas wanadadi 2</td>
+                                        <td>RSI Banjarnegara</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>LATIF SUTOPO</td>
+                                        <td>3304100112920000</td>
+                                        <td>Kandangwangi 1/2</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td>✓</td>
+                                        <td>Puskesmas Wanadadi 2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>NURHASAN</td>
+                                        <td>3304101501850000</td>
+                                        <td>Kandangwangi</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td></td>
+                                        <td>Puskesmas wanadadi 2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>RIDWAN LATIF</td>
+                                        <td></td>
+                                        <td>Kandangwangi 2/3</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td></td>
+                                        <td>Puskesmas wanadadi 2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>25</td>
+                                        <td>SUGENG RIYADI</td>
+                                        <td>3304101401890000</td>
+                                        <td>Kandangwangi 3/2</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Siaga medika</td>
+                                    </tr>
+                                    <tr>
+                                        <td>26</td>
+                                        <td>SITA OKTAFIA NINGRUM</td>
+                                        <td>3304100510900000</td>
+                                        <td>Kandangwangi 3/2</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Panti pucang</td>
+                                    </tr>
+                                    <tr>
+                                        <td>40</td>
+                                        <td>NDURIYAH</td>
+                                        <td></td>
+                                        <td>Kandangwangi 2/1</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>41</td>
+                                        <td>AKHAMD SUBARDI</td>
+                                        <td>3304101401890000</td>
+                                        <td>Kandangwangi 5/1</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td></td>
+                                        <td>Puskesmas Wanadadi 2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>45</td>
+                                        <td>SUPRIYANTI</td>
+                                        <td></td>
+                                        <td>Kandangwangi 6/3</td>
+                                        <td>skizofrenia</td>
+                                        <td>aktif</td>
+                                        <td>✓</td>
+                                        <td></td>
+                                        <td>RSI</td>
+                                    </tr>
+                                    </tbody>
+                                                                    </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <!-- Modal -->
+        <div class="modal fade" id="dusunModal" tabindex="-1" aria-labelledby="dusunModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dusunModalLabel">Detail Dusun</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered" id="dusunTable">
+                <thead>
+                    <tr>
+                    <th>NO</th>
+                    <th>NAMA</th>
+                    <th>NIK</th>
+                    <th>ALAMAT</th>
+                    <th>DIAGNOSA</th>
+                    <th>AKTIF/TIDAK AKTIF</th>
+                    <th>RUMAH SAKIT</th>
+                    <th>PUSKESMAS</th>
+                    <th>POSISI SAAT INI</th>
+                    </tr>
+                </thead>
+                <tbody id="dusunTableBody">
+                    <!-- data akan dimasukkan via JS -->
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+                    <script>
+            // Data mentah (dari table asli, bisa juga dibuat fetch dari JSON jika besar)
+           const dataODGJ = [
+  { no: 1, nama: "RIZAL FEBRIAN", nik: "3304102802990000", alamat: "Kandangwangi 4/4", diagnosa: "shizofrenia", status: "aktif", rs: "✓", puskesmas: "", posisi: "RSI" },
+  { no: 2, nama: "FIRDAUS FEBRIAN", nik: "3304101802980000", alamat: "Kandangwangi 4/3", diagnosa: "shizofrenia", status: "aktif", rs: "✓", puskesmas: "", posisi: "RSI" },
+  { no: 3, nama: "YARMAN", nik: "3304100706780000", alamat: "Kandangwangi 3/4", diagnosa: "shizofrenia", status: "aktif", rs: "", puskesmas: "Puskesmas Wanadadi 2", posisi: "" },
+  { no: 4, nama: "KINAR", nik: "3304101203710001", alamat: "Kandangwangi 3/4", diagnosa: "shizofrenia", status: "aktif", rs: "", puskesmas: "Puskesmas wanadadi 2", posisi: "RSI Banjarnegara" },
+  { no: 5, nama: "LATIF SUTOPO", nik: "3.304.100.112.920.000", alamat: "Kandangwangi 1/2", diagnosa: "shizofrenia", status: "aktif", rs: "✓", puskesmas: "Puskesmas Wanadadi 2", posisi: "" },
+  { no: 6, nama: "NURHASAN", nik: "3.304.101.510.850.000", alamat: "Kandangwangi 4/4", diagnosa: "shizofrenia", status: "aktif", rs: "", puskesmas: "Puskesmas wanadadi 2", posisi: "" },
+  { no: 7, nama: "RIDWAN LATIF", nik: "", alamat: "Kandangwangi 1/3", diagnosa: "shizofrenia", status: "aktif", rs: "", puskesmas: "Puskesmas wanadadi 2", posisi: "" },
+  { no: 8, nama: "SUGENG RIYADI", nik: "3.304.101.410.890.000", alamat: "Kandangwangi 2/3", diagnosa: "shizofrenia", status: "aktif", rs: "", puskesmas: "", posisi: "Siaga medika" },
+  { no: 9, nama: "SITA OKTAFIA NINGRUM", nik: "3.304.105.010.990.000", alamat: "Kandangwangi 3/2", diagnosa: "shizofrenia", status: "aktif", rs: "", puskesmas: "", posisi: "Panti pucang" },
+  { no: 10, nama: "NDURIYAH", nik: "", alamat: "Kandangwangi 2/1", diagnosa: "shizofrenia", status: "aktif", rs: "", puskesmas: "", posisi: "" },
+  { no: 11, nama: "AKHAMD SUBARDI", nik: "3.304.101.410.890.000", alamat: "Kandangwangi 5/1", diagnosa: "shizofrenia", status: "aktif", rs: "", puskesmas: "Puskesmas Wanadadi 2", posisi: "" },
+  { no: 12, nama: "SUPRIYANTI", nik: "", alamat: "Kandangwangi 6/3", diagnosa: "shizofrenia", status: "aktif", rs: "✓", puskesmas: "", posisi: "RSI" }
+];
+            // Fungsi untuk mengambil RW dari alamat
+            function extractRW(alamat) {
+                const match = alamat.match(/\/(\d+)/); // cari angka setelah slash
+                return match ? parseInt(match[1]) : null;
+            }
+
+            // Mapping RW ke dusun
+            const rwToDusun = {
+                1: "Klesem",
+                2: "Babakan",
+                3: "Karangjambu",
+                4: "Wanatawang"
+            };
+
+            // Event listener untuk setiap tombol "View Details"
+            document.querySelectorAll('.card-footer .stretched-link').forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                const dusunRW = index + 1; // card urutan sesuai RW
+                const dusunName = rwToDusun[dusunRW];
+
+                const filtered = dataODGJ.filter(row => extractRW(row.alamat) === dusunRW);
+
+                const tbody = document.getElementById('dusunTableBody');
+                tbody.innerHTML = ""; // bersihkan dulu
+
+                filtered.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                    <td>${row.no}</td>
+                    <td>${row.nama}</td>
+                    <td>${row.nik || '-'}</td>
+                    <td>${row.alamat}</td>
+                    <td>${row.diagnosa}</td>
+                    <td>${row.status}</td>
+                    <td>${row.rs}</td>
+                    <td>${row.puskesmas}</td>
+                    <td>${row.posisi}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                document.getElementById('dusunModalLabel').textContent = `Detail ODGJ Dusun ${dusunName}`;
+                const modal = new bootstrap.Modal(document.getElementById('dusunModal'));
+                modal.show();
+                });
+            });
+            </script>
+                            <script>
+                // Inisialisasi peta
+                const map = L.map('map').setView([-7.3721, 109.6520], 15); // Ganti koordinat jika perlu
+
+                // Tambahkan tile layer dari OpenStreetMap
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+
+                // Data titik (contoh manual dari data ODGJ)
+                const odgjData = [
+                {
+                    nama: "F.F",
+                    alamat: "Kandangwangi RT 04 / RW 03",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh orang tua",
+                    lat: -7.360587,
+                    lng: 109.6554007,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-09%20at%2019.46.45.jpeg"
+                },
+                {
+                    nama: "YN",
+                    alamat: "Kandangwangi RT 03 / RW 04",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh Kakak",
+                    lat: -7.3522673,
+                    lng: 109.6556458,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2010.08.51.jpeg"
+                },
+                {
+                    nama: "KR",
+                    alamat: "Kandangwangi RT 03 / RW 04",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh Kakak",
+                    lat: -7.3523045,
+                    lng: 109.6555284,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2010.07.56%20(1).jpeg"
+                },
+                {
+                    nama: "LS",
+                    alamat: "Kandangwangi RT 01 / RW 02",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh Kakak & ibu",
+                    lat: -7.3639632,
+                    lng: 109.6494904,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2017.26.47.jpeg"
+                },
+                {
+                    nama: "RL",
+                    alamat: "Kandangwangi RT 01 / RW 03",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh orang tua",
+                    lat: -7.3643090,
+                    lng: 109.6556169,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-09%20at%2019.00.31.jpeg"
+                },
+                {
+                    nama: "SR",
+                    alamat: "Kandangwangi RT 02 / RW 03",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh adik",
+                    lat: -7.3637268,
+                    lng: 109.6544401,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-09%20at%2018.39.13.jpeg"
+                },
+                {
+                    nama: "SON",
+                    alamat: "Kandangwangi RT 03 / RW 02",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh Orangtua",
+                    lat: -7.3631439,
+                    lng: 109.6448891,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2014.16.13.jpeg"
+                },
+                {
+                    nama: "NRH",
+                    alamat: "Kandangwangi RT 02 / RW 01",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh suami",
+                    lat: -7.3634937,
+                    lng: 109.6530688,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2014.18.50.jpeg"
+                },
+                {
+                    nama: "AS",
+                    alamat: "Kandangwangi RT 05 / RW 01",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh istri dan anak",
+                    lat: -7.3661933,
+                    lng: 109.6515118,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2014.18.53%20(1).jpeg"
+                },
+                {
+                    nama: "SYI",
+                    alamat: "Kandangwangi RT 06 / RW 03",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh orangtua",
+                    lat: -7.3586682,
+                    lng: 109.6573399,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2014.18.43.jpeg"
+                },
+                {
+                    nama: "KDH & AGS",
+                    alamat: "Kandangwangi RT 04 / RW 03",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh adik kandung",
+                    lat: -7.3603168,
+                    lng: 109.6558325,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2014.17.24.jpeg"
+                },
+                {
+                    nama: "SDO",
+                    alamat: "Kandangwangi RT 04 / RW 03",
+                    diagnosa: "Skizofrenia",
+                    status: "Diasuh oleh adik kandung",
+                    lat: -7.3601476,
+                    lng: 109.6556095,
+                    foto: "https://raw.githubusercontent.com/lala2003lal/lala2003lal/main/WhatsApp%20Image%202025-07-14%20at%2014.17.24.jpeg"
+                }
+                ];
+                // Tambahkan marker ke peta
+                odgjData.forEach(person => {
+                    const popupContent = `
+                    <strong>Nama:</strong> ${person.nama}<br/>
+                    <strong>Alamat:</strong> ${person.alamat}<br/>
+                    <strong>Diagnosa:</strong> ${person.diagnosa}<br/>
+                    <strong>Status Keluarga / Pendamping:</strong> ${person.status}
+                    ${person.foto ? `<br><img src="${person.foto}" width="100px">` : ""}
+                    `;
+                    L.marker([person.lat, person.lng]).addTo(map).bindPopup(popupContent);
+                });
+                </script>
+                </body>
+            </html>
